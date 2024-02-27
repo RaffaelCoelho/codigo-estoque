@@ -1,0 +1,129 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+
+int main()
+{
+    
+    int dias_trabalho , quantidade_produtos_mes[5], venda_total_produto1 , venda_total_produto2;
+    int estoque_min , estoque_max;
+    int i;
+    int meses;
+    int venda_media_produto1;
+    int venda_media_produto2;
+    float tempo_de_reposicao_produto1;
+    float tempo_de_reposicao_produto2;
+    int estoque_min2 , estoque_max2;
+    int lot_reposicao1;
+    int lot_reposicao2;
+    int ea;
+    int ea2;
+
+    printf("Quantidade de meses trabalhados:");
+    scanf("%d" , &meses);
+    
+     system("cls||clear");
+    
+    for (i = 0; i < meses; i++)
+    {
+      printf("Quanto foi vendido do produto 1 no %dº mês:" , i + 1);    
+      scanf("%d" , &quantidade_produtos_mes[i]);      
+      venda_total_produto1 += quantidade_produtos_mes[i];    
+    }
+    
+    system("cls||clear");
+    
+    for (i = 0; i < meses; i++)
+    {
+      printf("Quanto foi vendido do produto 2 no %dº mês:" , i + 1);    
+      scanf("%d" , &quantidade_produtos_mes[i]);      
+      venda_total_produto2 += quantidade_produtos_mes[i];    
+    }
+    
+     system("cls||clear");
+    
+    printf("Quantidade de dias trabalhados por mês?");
+    scanf("%d" , &dias_trabalho);
+    
+     system("cls||clear");
+    
+    venda_media_produto1 = venda_total_produto1 / (meses * dias_trabalho); 
+    venda_media_produto2 = venda_total_produto2 / (meses * dias_trabalho); 
+    
+    printf("\nVenda media diaria do produto 1: %d" , venda_media_produto1);
+    printf("\nVenda media diaria do produto 2: %d" , venda_media_produto2);
+     
+    printf("\n\nConferindo estoque minimo \n");
+
+    printf("tempo de reposicao do produto 1:");
+    scanf("%f", &tempo_de_reposicao_produto1);
+
+    printf("tempo de reposicao do produto 2:");
+    scanf("%f", &tempo_de_reposicao_produto2);
+
+    estoque_min = tempo_de_reposicao_produto1 * venda_media_produto1;
+    estoque_min2 = tempo_de_reposicao_produto2 * venda_media_produto2;
+    
+
+
+    system("cls||clear");
+    
+    printf("\nestoque minimo primeiro produto: %d" , estoque_min); 
+     printf("\nestoque minimo segundo produto: %d" , estoque_min2); 
+
+
+    printf("\n\nlote de reposicao do produto 1:");
+    scanf("%d",&lot_reposicao1);
+
+    printf("lote de reposicao do produto 2:");
+    scanf("%d",&lot_reposicao2);
+
+
+
+
+    estoque_max = estoque_min + lot_reposicao1;
+    estoque_max2 = estoque_min2 + lot_reposicao2;
+    
+
+    system("cls||clear");
+
+    printf("\nestoque max: %d",estoque_max); 
+     printf("\nestoque max: %d",estoque_max2); 
+
+
+     printf("\n\ndigite ea do produto 1:");
+     scanf("%d",&ea);
+
+     printf("digite ea do produto 2:");
+     scanf("%d",&ea2);
+
+     if (ea < estoque_min)
+     {
+        printf("comprar \n");
+     }
+
+     else
+     {
+        printf("nao comprar \n");
+     }
+     
+      if (ea2 < estoque_min2)
+     {
+        printf("comprar \n");
+     }
+
+     else
+     {
+        printf("nao comprar \n");
+     }
+
+
+
+
+
+
+
+   
+
+    return 0;
+}
